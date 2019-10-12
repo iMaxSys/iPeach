@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 namespace iMaxSys.iPeach.Laucher.LifeTree
 {
     /// <summary>
-    /// 
+    /// Startup
     /// </summary>
     public class Startup
     {
