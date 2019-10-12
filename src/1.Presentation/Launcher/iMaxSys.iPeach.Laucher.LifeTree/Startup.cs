@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 
 namespace iMaxSys.iPeach.Laucher.LifeTree
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
