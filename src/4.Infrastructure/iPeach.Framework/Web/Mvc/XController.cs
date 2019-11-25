@@ -1,0 +1,63 @@
+﻿//----------------------------------------------------------------
+//Copyright (C) 2016-2022 iMaxSys Co.,Ltd.
+//All rights reserved.
+//
+//文件: ControllerBase.cs
+//摘要: 控制器基类
+//说明:
+//
+//当前：1.0
+//作者：陶剑扬
+//日期：2017-11-16
+//----------------------------------------------------------------
+
+using System.IO;
+using System.Net;
+using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Http;
+
+using iMaxSys.Max.Domain;
+using iMaxSys.Max.Web.Mvc;
+using iMaxSys.Max.Extentions;
+using iMaxSys.Max.Exceptions;
+
+namespace iMaxSys.MaxOne.Framework.Web.Mvc
+{
+    /// <summary>
+    /// 控制器基类
+    /// </summary>
+    public class XController : MaxController
+    {
+        /// <summary>
+        /// 获取请求Json
+        /// </summary>
+        /// <returns></returns>
+        protected async Task<string> GetRequestText()
+        {
+            string text = string.Empty;
+            Request.EnableBuffering();
+
+            //获取Body中的原始json
+            if (Request.Body.CanSeek)
+            {
+                Request.Body.Position = 0;
+                using (StreamReader reader = new StreamReader(Request.Body))
+                {
+                    text = await reader.ReadToEndAsync();
+                }
+            }
+
+            //检查消息体是否为空
+            if (!Request.Body.CanSeek || string.IsNullOrWhiteSpace(text))
+                throw new MaxException(ResultCode.RequestDataIsEmpty, HttpStatusCode.BadRequest);
+
+            return text;
+        }
+
+        protected Result Result(ResultCode resultCode, object data)
+        {
+            return resultCode.Result(data);
+        }
+    }
+}
