@@ -8,4 +8,8 @@
     <Folder Include="Models\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iPeach.Domain.Core\iPeach.Domain.Core.csproj" />
+    <ProjectReference Include="..\..\4.Infrastructure\iPeach.Framework\iPeach.Framework.csproj" />
+  </ItemGroup>
 </Project>

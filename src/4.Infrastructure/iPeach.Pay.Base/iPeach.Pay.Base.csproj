@@ -5,10 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Enums\" />
-    <Folder Include="Options\" />
+    <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="iMaxSys.Max" Version="1.0.4" />
+    <ProjectReference Include="..\iPeach.Framework\iPeach.Framework.csproj" />
   </ItemGroup>
 </Project>

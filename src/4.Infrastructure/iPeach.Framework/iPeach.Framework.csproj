@@ -9,12 +9,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
+    <Compile Remove="Sns\Api\AccessConfig.cs" />
+    <Compile Remove="Sns\Api\App.cs" />
+    <Compile Remove="Sns\Api\Response\SnsResponse.cs" />
+    <Compile Remove="Sns\Api\Reqeust\SnsRequest.cs" />
+    <Compile Remove="Sns\Domain\Enums.cs" />
+    <Compile Remove="Sns\Domain\Auth\SnsAuth.cs" />
+    <Compile Remove="Sns\Domain\Open\PhoneNumber.cs" />
+    <Compile Remove="Sns\ISnsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Web\" />
     <Folder Include="Web\Mvc\" />
+    <Folder Include="Middlewares\" />
+    <Folder Include="Middlewares\Access\" />
+    <Folder Include="UnitOfWork\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="iMaxSys.Max" Version="1.0.0" />
+    <ProjectReference Include="..\iPeach.Common\iPeach.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="iMaxSys.Max" Version="1.0.6" />
   </ItemGroup>
 </Project>
